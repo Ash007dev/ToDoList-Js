@@ -19,8 +19,7 @@ renderToDoList();
 function renderToDoList(){
     let todoListHTML = "";
 
-    for(let i = 0; i < taskArray.length; i++){
-        const toDoObject = taskArray[i];
+    taskArray.forEach((toDoObject, index) => {
         //const name = toDoObject.name;
         //const dueDate = toDoObject.dueDate;
         const { name, dueDate } = toDoObject;
@@ -31,16 +30,39 @@ function renderToDoList(){
                         <div>
                             ${dueDate}
                         </div>
-                        <button class="deleteButton" onclick="taskArray.splice(${i}, 1); renderToDoList(); saveToStorage();">
+                        <button class="deleteButton">
                             Delete
                         </button>
                     </div>`;
         todoListHTML += html;
-    }
+    })
+    
     container.innerHTML = todoListHTML;
+
+    document.querySelectorAll('.deleteButton').forEach((deleteButton, index) => {
+        deleteButton.addEventListener('click', () => {
+            taskArray.splice(index, 1);
+            renderToDoList();
+            saveToStorage();
+        })
+    })
+    
+    addEventListener('click', () => {
+
+    })
 
 
 }
+
+document.querySelector('.addButton').addEventListener('click', () => {
+    addTask();
+});
+
+document.querySelector('.taskName').addEventListener('keydown', (event) => {
+    if(event.key == 'Enter'){
+        addTask();
+    }
+});
 
 function addTask(){
     
@@ -60,10 +82,4 @@ function addTask(){
 
     saveToStorage();
 
-}
-
-function handleKeyDown(event){
-    if (event.key == "Enter"){
-        addTask();
-    }
 }

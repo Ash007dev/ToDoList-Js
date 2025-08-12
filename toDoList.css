@@ -1,0 +1,50 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.addButton{
+
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 10px 30px;
+}
+
+
+.dateofTask{
+
+    padding:7px 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.taskName{
+
+    padding:8px 30px;
+}
+
+.toDoListContainer{
+    display: grid;
+    grid-template-rows: 50px 50px 50px;
+    width: 420px;
+}
+
+.taskRow{
+
+    display:grid;
+    grid-template-columns: 250px 167px 84px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-bottom:10px;
+    align-items:center;
+    flex-direction:row;
+    justify-content:space-between
+}
+
+.deleteButton{
+    background-color:red;
+    padding:10px 22px;
+    border:none;
+    color:white
+}
+
